@@ -68,7 +68,12 @@ $defult_pic = 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixli
              transform: scale(1) translate(-50%,-40%);
              width: 125px;
              height: 125px;
-             background-image: url(<?php if (!empty($rows['picture'])){echo $rows['picture'];}else{echo $defult_pic;} ?>);
+             background-image: url(<?php
+            while ($rows = $run->fetch_assoc()){
+            
+                if (!empty($rows['picture'])){echo "../assets/images/". $rows['picture'];}else{echo $defult_pic;
+            
+            } ?>);
              background-size: cover;
              border-radius: 1rem;
              box-shadow: 0 1px 7px rgba(0,0,0,0.2);
@@ -155,9 +160,6 @@ $defult_pic = 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixli
 </head>
 <body>
 <main class='card'>
-    <?php
-    while ($rows = $run->fetch_assoc()) {
-    ?>
     <div class='card-container'>
         <div class='bio'>
             <h2><?php echo $rows['name'] ; ?></h2>

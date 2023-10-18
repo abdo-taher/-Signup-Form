@@ -9,14 +9,16 @@ function save_data()
         form_data.append(form_element[count].name, form_element[count].value);
     }
 
+    var picture = document.getElementById("picture").files[0]
+    form_data.append('image', picture);
+    
     document.getElementById('submit').disabled = true;
-
+          
     var ajax_request = new XMLHttpRequest();
-
     ajax_request.open('POST', 'Controller/RegisterCheck.php');
+    ajax_request.setRequestHeader('enctype', 'multipart/form-data');
 
     ajax_request.send(form_data);
-
     ajax_request.onreadystatechange = function()
     {
         if(ajax_request.readyState == 4 && ajax_request.status == 200)
@@ -65,7 +67,9 @@ function save_data()
 }
 
 function reset(){
+
     document.getElementById('sample_form').reset();
+    document.getElementsByClassName('error').innerHTML = '';
 
 }
 

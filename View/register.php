@@ -60,7 +60,7 @@ require __DIR__ . '/../Config/Authenticate.php';
                         </div><br>
 
                         <div class="form-check">
-                            <input class="form-check-input form_data" name="terms" type="checkbox"  id="terms" >
+                            <input class="form-check-input form_data" name="terms"   id="terms" type="radio">
                             <label class="form-check-label">I accept terms & condition</label>
                             <div id="terms_error" class="error"></div>
                         </div>

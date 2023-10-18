@@ -5,8 +5,6 @@ require_once (realpath(dirname(__FILE__) . '/../Config/config.php'));
 
 if(isset($_POST["name"]))
 {
-
-
     $success = '';
 
     $name = $_POST["name"];
@@ -18,7 +16,7 @@ if(isset($_POST["name"]))
 
     $website = $_POST["website"];
 
-    $picture = $_POST["picture"];
+    $image = $_POST["picture"];
 
     $gender = $_POST["gender"];
 
@@ -82,6 +80,8 @@ if(isset($_POST["name"]))
 
     // pic validate
 
+
+
     require __DIR__ . '/../Helper/helper.php';
 
     //----------
@@ -104,7 +104,7 @@ if(isset($_POST["name"]))
             ':email'		=>	$email,
             ':password'		=>	$password,
             ':website'		=>	$website,
-            ':picture'		=>	$picture,
+            ':picture'		=>	$image,
             ':gender'		=>	$gender,
             ':terms'		=>	$terms
         );
@@ -143,7 +143,7 @@ if(isset($_POST["name"]))
             die('SQL error :' . $conn->error);
         }
         $stmt->bind_param("ssssss",
-            $name,$email,$password_hash,$website,$picture,$gender
+            $name,$email,$password_hash,$website,$image,$gender
         );
 //        $token = $stmt->mysqli_stmt_insert_id($conn);
 //        $_SESSION['Token'] = rand(0000000.99999999);
